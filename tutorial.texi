@@ -1,0 +1,9 @@
+
+$ git init
+Initialized empty Git repository in /home/michael/projects/hangon/.git/
+
+$ git commit
+
+$ touch NEWS README AUTHORS ChangeLog
+$ autoreconf --install
+$ git commit
