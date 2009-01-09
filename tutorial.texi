@@ -64,3 +64,18 @@ Hallo, Welt!
 
 ### Write some real code and translations
 
+### Add a bunch of autotest tests
+
+# -> configure.ac
+AC_CONFIG_TESTDIR([tests], [tests:src])
+AC_CONFIG_FILES([tests/Makefile])
+
+# Define additional programs needed for hacking on this project,
+# but not required for simply building it.
+# autom4te: used for merging tests into a suite
+AM_MISSING_PROG([AUTOM4TE], [autom4te])
+
+$ autoreconf
+$ make check
+
+### Add a man page

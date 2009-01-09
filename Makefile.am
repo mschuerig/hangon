@@ -1,4 +1,4 @@
-SUBDIRS = po src
+SUBDIRS = po src tests
 
 ACLOCAL_AMFLAGS = -I m4
 

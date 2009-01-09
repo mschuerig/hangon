@@ -1,0 +1,14 @@
+# -*- Autotest -*-
+
+AT_SETUP([termination with error])
+
+AT_CHECK([hangon error-term.sh],
+         [1],
+         [],
+[Command terminated with status: 0
+])
+
+AT_CHECK([hangon -q error-term.sh],
+         [1])
+
+AT_CLEANUP

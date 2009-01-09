@@ -1,0 +1,19 @@
+# -*- Autotest -*-
+
+AT_SETUP([hangon version])
+
+AT_CHECK([hangon --version | sed 1q],
+         [0],
+         [AT_PACKAGE_NAME AT_PACKAGE_VERSION
+],
+[],
+[cat >$[]XFAILFILE <<'_EOT'
+
+==============================================================
+WARNING: Not using the proper version, *all* checks dubious...
+==============================================================
+_EOT
+],
+[rm -f $[]XFAILFILE])
+
+AT_CLEANUP

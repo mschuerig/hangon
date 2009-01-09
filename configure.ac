@@ -27,4 +27,12 @@ AM_GNU_GETTEXT([external])
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_FILES([Makefile src/Makefile po/Makefile.in])
 
+AC_CONFIG_TESTDIR([tests], [tests:src])
+AC_CONFIG_FILES([tests/Makefile])
+
+# Define additional programs needed for hacking on this project,
+# but not required for simply building it.
+# autom4te: used for merging tests into a suite
+AM_MISSING_PROG([AUTOM4TE], [autom4te])
+
 AC_OUTPUT

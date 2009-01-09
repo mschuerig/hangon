@@ -1,0 +1,14 @@
+# Process this file with autom4te to create testsuite. -*- Autotest -*-
+
+# We need a recent Autotest.
+m4_version_prereq([2.52g])
+
+AT_INIT
+
+AT_TESTED([hangon])
+
+m4_include([version.at])
+m4_include([normal-term.at])
+m4_include([error-term.at])
+m4_include([non-existing.at])
+m4_include([max-retries.at])

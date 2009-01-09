@@ -1,0 +1,23 @@
+# -*- Autotest -*-
+
+AT_SETUP([limited number of retries])
+
+AT_CHECK([hangon -t 1 -r 3 slow.sh],
+         [1],
+[Started
+Started
+Started
+],
+[Command timed out, retrying...
+Command timed out, retrying...
+Command timed out too often.
+])
+
+AT_CHECK([hangon -q -t 1 -r 3 slow.sh],
+         [1],
+[Started
+Started
+Started
+])
+
+AT_CLEANUP

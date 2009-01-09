@@ -1,0 +1,10 @@
+# -*- Autotest -*-
+
+AT_SETUP([normal termination])
+
+AT_CHECK([hangon normal-term.sh],
+         [0],
+         [I execute quickly and terminate even quicklier.
+])
+
+AT_CLEANUP

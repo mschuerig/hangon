@@ -1,0 +1,18 @@
+# -*- Autotest -*-
+
+AT_SETUP([non-existing command])
+
+AT_CHECK([hangon non-existing-command],
+         [1],
+         [],
+[non-existing-command: No such file or directory
+Command terminated with status: 0
+])
+
+AT_CHECK([hangon -q non-existing-command],
+         [1],
+         [],
+[non-existing-command: No such file or directory
+])
+
+AT_CLEANUP
