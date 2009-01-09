@@ -1,6 +1,7 @@
 
 #include <stdio.h>
 #include <libintl.h>
+#include <locale.h>
 
 #include "config.h"
 

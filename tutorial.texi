@@ -18,6 +18,7 @@ $ git commit
 
 #include <stdio.h>
 #include <libintl.h>
+#include <locale.h>
 
 #include "config.h"
 
@@ -37,3 +38,19 @@ main(int argc, char *argv[])
 $ gettextize
 $ autoreconf --install
 # add generated files to git
+
+# -> src/Makefile.am
+localedir = $(datadir)/locale
+AM_CPPFLAGS = -DLOCALEDIR=\"$(localedir)\"
+
+$ mv po/Makevars.template po/Makevars
+
+# src/hangon.c -> po/POTFILES.in
+# de -> po/LINGUAS
+$ cd po && msginit -l de && cd -
+# translate po/de.po
+# re-config so that the new language is picked up
+$ ./config.status
+$ cd po && make update-po && cd -
+# *.gmo -> po/.gitignore
+
