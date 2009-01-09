@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hangon 0.1\n"
 "Report-Msgid-Bugs-To: michael@schuerig.de\n"
-"POT-Creation-Date: 2009-01-09 20:42+0100\n"
-"PO-Revision-Date: 2009-01-09 22:40+0100\n"
+"POT-Creation-Date: 2009-01-09 23:42+0100\n"
+"PO-Revision-Date: 2009-01-09 23:47+0100\n"
 "Last-Translator: Michael Schuerig <michael@schuerig.de>\n"
 "Language-Team: German\n"
 "MIME-Version: 1.0\n"
@@ -16,7 +16,64 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: src/hangon.c:18
+#: src/hangon.c:58
 #, c-format
-msgid "Hello, World!\n"
-msgstr "Hallo, Welt!\n"
+msgid "Try %s --help for more information.\n"
+msgstr "„%s --help“ gibt weitere Informationen.\n"
+
+#: src/hangon.c:60
+#, c-format
+msgid "Usage: %s [OPTION]... -- COMMAND [COMMAND OPTION]...\n"
+msgstr "Aufruf: %s [OPTION]... -- BEFEHL [BEFEHLSOPTIONEN]\n"
+
+#: src/hangon.c:64
+msgid ""
+"Restart an erratic COMMAND until it finishes cleanly.\n"
+"  -q, --quiet              suppress diagnostic messages\n"
+"  -r, --retries=TIMES      maximum number of times COMMAND is restarted\n"
+"  -t, --timeout=SECONDS    timeout in seconds\n"
+msgstr ""
+"Starte einen feststeckenden BEFEHL erneut, bis er fehlerfrei durchläuft.\n"
+"  -q, --quiet              Meldungen unterdrücken\n"
+"  -r, --retries=ANZAHL     maximale Anzahl, wie oft der BEFEHL neu gestartet "
+"wird\n"
+"  -t, --timeout=SEKUNDEN   Zeit, nach der der BEFEHL neu gestartet wird\n"
+
+#: src/hangon.c:71
+msgid "  -d, --debug              show debugging information\n"
+msgstr ""
+"  -d, --debug              zeige Informationen für die Fehlersuche an\n"
+
+#: src/hangon.c:75
+msgid "      --help               display this help and exit\n"
+msgstr "      --help               diese Hilfe anzeigen und beenden\n"
+
+#: src/hangon.c:78
+msgid "      --version            output version information and exit\n"
+msgstr "      --version            Versionsinformation anzeigen und beenden\n"
+
+#: src/hangon.c:89
+msgid "(C)"
+msgstr "©"
+
+#: src/hangon.c:90
+msgid ""
+"License GPLv2+: GNU GPL version 2 or later <http://gnu.org/licenses/gpl."
+"html>\n"
+"This is free software: you are free to change and redistribute it.\n"
+"There is NO WARRANTY, to the extent permitted by law.\n"
+msgstr ""
+"Lizenz GPLv2+: GNU GPL Version 2 oder höher <http://gnu.org/licenses/gpl."
+"html>\n"
+"Dies ist freie Software: Sie können sie ändern und weitergeben.\n"
+"Es gibt keinerlei Garantien, soweit wie es das Gesetz erlaubt.\n"
+
+#: src/hangon.c:210
+#, c-format
+msgid "timeout must not be negative\n"
+msgstr "die Timeout-Option darf nicht negativ sein\n"
+
+#: src/hangon.c:217
+#, c-format
+msgid "retries must not be negative\n"
+msgstr "die retries-Option darf nicht negativ sein\n"
