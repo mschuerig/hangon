@@ -4,8 +4,36 @@ Initialized empty Git repository in /home/michael/projects/hangon/.git/
 
 $ git commit
 
+
+# Autotools
+
 $ touch NEWS README AUTHORS ChangeLog
 $ autoreconf --install
 $ git commit
 --> .gitignore
 
+# debugging & fortification
+
+# internationalization
+
+#include <stdio.h>
+#include <libintl.h>
+
+#include "config.h"
+
+#define _(msgid) gettext(msgid)
+#define N_(msgid) msgid
+
+int
+main(int argc, char *argv[])
+{
+  setlocale(LC_ALL, "");
+  bindtextdomain(PACKAGE, LOCALEDIR);
+  textdomain(PACKAGE);
+
+  printf(_("Hello, World!\n"));
+}
+
+$ gettextize
+$ autoreconf --install
+# add generated files to git

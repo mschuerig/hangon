@@ -1,8 +1,18 @@
 
 #include <stdio.h>
+#include <libintl.h>
+
+#include "config.h"
+
+#define _(msgid) gettext(msgid)
+#define N_(msgid) msgid
 
 int
 main(int argc, char *argv[])
 {
-  printf("Hello, World!\n");
+  setlocale(LC_ALL, "");
+  bindtextdomain(PACKAGE, LOCALEDIR);
+  textdomain(PACKAGE);
+
+  printf(_("Hello, World!\n"));
 }

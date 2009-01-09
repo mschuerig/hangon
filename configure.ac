@@ -21,7 +21,10 @@ else
     CFLAGS="$CFLAGS -DNDEBUG"
 fi
 
+# Use a libintl installed on the system.
+AM_GNU_GETTEXT([external])
+
 AC_CONFIG_HEADERS([config.h])
-AC_CONFIG_FILES([Makefile src/Makefile])
+AC_CONFIG_FILES([Makefile src/Makefile po/Makefile.in])
 
 AC_OUTPUT
