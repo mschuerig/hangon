@@ -7,3 +7,5 @@ $ git commit
 $ touch NEWS README AUTHORS ChangeLog
 $ autoreconf --install
 $ git commit
+--> .gitignore
+
