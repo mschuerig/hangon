@@ -54,3 +54,11 @@ $ ./config.status
 $ cd po && make update-po && cd -
 # *.gmo -> po/.gitignore
 
+$ mkdir build.test
+$ cd build.test
+$ ../configure --prefix=/tmp/test
+$ make
+$ make install
+$ LC_MESSAGES=de_DE.UTF-8 /tmp/test/bin/hangon
+Hallo, Welt!
+
