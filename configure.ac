@@ -1,5 +1,7 @@
 AC_INIT([hangon],[0.1],[michael@schuerig.de])
+AC_CONFIG_AUX_DIR([build-aux])
 AM_INIT_AUTOMAKE([-Wall -Werror])
+
 AC_PROG_CC
 
 # -Wextra enables additional checks not included in -Wall
