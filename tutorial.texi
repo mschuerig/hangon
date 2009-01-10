@@ -79,3 +79,28 @@ $ autoreconf
 $ make check
 
 ### Add a man page
+
+# -> configure.ac
+# help2man: used for deriving man pages from --help and --version output
+AM_MISSING_PROG([HELP2MAN], [help2man])
+
+# -> Makefile.am
+
+man_page = $(PACKAGE).1
+man_MANS = $(man_page)
+CLEANFILES = $(man_page)
+
+EXTRA_DIST = config.rpath m4/ChangeLog $(man_MANS)
+
+# Create the man page from --help and --version output
+
+common_dep = $(top_srcdir)/configure.ac
+### TODO remove the explicit name
+$(man_page): $(common_dep) $(srcdir)/hangon.x $(srcdir)/src/hangon.c
+
+SUFFIXES = .x .1
+.x.1:
+	$(HELP2MAN) \
+	 --no-info \
+	 --include=$(srcdir)/$*.x \
+	 --output=$@ src/$*

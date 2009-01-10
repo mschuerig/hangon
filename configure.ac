@@ -34,5 +34,7 @@ AC_CONFIG_FILES([tests/Makefile])
 # but not required for simply building it.
 # autom4te: used for merging tests into a suite
 AM_MISSING_PROG([AUTOM4TE], [autom4te])
+# help2man: used for deriving man pages from --help and --version output
+AM_MISSING_PROG([HELP2MAN], [help2man])
 
 AC_OUTPUT
