@@ -25,7 +25,7 @@ fi
 AM_GNU_GETTEXT([external])
 
 AC_CONFIG_HEADERS([config.h])
-AC_CONFIG_FILES([Makefile src/Makefile po/Makefile.in])
+AC_CONFIG_FILES([Makefile src/Makefile doc/Makefile po/Makefile.in])
 
 AC_CONFIG_TESTDIR([tests], [tests:src])
 AC_CONFIG_FILES([tests/Makefile])
