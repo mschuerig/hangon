@@ -1,0 +1,7 @@
+
+* retries: of-by-one?
+* don't restart command if exited with a specific set of status codes
+* handle multiple streams (stderr)?
+* hangon.1
+ - include in dist
+* gnulib: atexit(close_stdout)

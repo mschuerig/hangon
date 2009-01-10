@@ -1,3 +1,58 @@
+\input texinfo  @c -*-texinfo-*-
+@c %**start of header
+@setfilename gnudance.info
+@settitle Doing the @sc{gnu} Dance
+@include version.texi
+@c %**end of header
+
+@copying
+Copyright © 2008 Michael Schürig
+@end copying
+
+@titlepage
+@title Doing the @sc{gnu} Dance
+@subtitle A Few Quick Steps Through a @sc{gnu}-ified and @i{Debian}-ized Project
+@insertcopying
+@end titlepage
+
+@contents
+
+@node Rationale
+@chapter Rationale
+
+@node Infrastructure
+@chapter Infrastructure
+
+@node A sample program
+@section A Sample Program
+
+@node git it
+@section @t{git} it!
+
+@node Nobody expects the autoconf-iscation
+@section Nobody Expects the @t{autoconf}-iscation
+
+@node Languages aplenty
+@section Languages Aplenty
+
+@node On being testy
+@section On Being Testy
+
+@node Sticking it into the man page
+@section Sticking it into the @t{man} page
+
+@node For your info
+@section For Your @t{info}
+
+@node Packing it for Debian
+@section Packing it for Debian
+
+
+@node Program
+@chapter Program
+
+@bye
+
 
 $ git init
 Initialized empty Git repository in /home/michael/projects/hangon/.git/
@@ -104,3 +159,6 @@ SUFFIXES = .x .1
 	 --no-info \
 	 --include=$(srcdir)/$*.x \
 	 --output=$@ src/$*
+
+### Debian package
+
