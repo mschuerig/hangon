@@ -5,22 +5,14 @@ build.*/
 
 ### Autotools generated files
 
+build-aux/
+m4/
+autom4te.cache/
+
 Makefile.in
 Makefile
 aclocal.m4
 
-config.guess
-config.log
-config.status
-config.sub
 config.h.in
-
 configure
 
-install-sh
-libtool
-ltmain.sh
-missing
-depcomp
-
-autom4te.cache/
