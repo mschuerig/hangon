@@ -12,6 +12,8 @@
 #include <sys/time.h>
 #include <sys/wait.h>
 
+#include "closeout.h"
+
 #include "config.h"
 
 #define PROGRAM_NAME "hangon"
@@ -207,12 +209,14 @@ int
 main(int argc, char *argv[])
 {
   program_name = argv[0];
-  
+
   setlocale(LC_ALL, "");
 #if ENABLE_NLS
   bindtextdomain(PACKAGE, LOCALEDIR);
   textdomain(PACKAGE);
 #endif
+
+  atexit(close_stdout);
 
   int optc;
   while ((optc = getopt_long(argc, argv, "t:r:qdhv", long_options, NULL)) != -1) {

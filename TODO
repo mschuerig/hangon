@@ -1,4 +1,3 @@
 
 * don't restart command if exited with a specific set of status codes
 * listen to multiple streams (stderr)?
-* gnulib: atexit(close_stdout)

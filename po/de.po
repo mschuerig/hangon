@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hangon 0.1\n"
 "Report-Msgid-Bugs-To: michael@schuerig.de\n"
-"POT-Creation-Date: 2009-01-11 22:45+0100\n"
+"POT-Creation-Date: 2009-01-12 00:24+0100\n"
 "PO-Revision-Date: 2009-01-09 23:47+0100\n"
 "Last-Translator: Michael Schuerig <michael@schuerig.de>\n"
 "Language-Team: German\n"
@@ -16,17 +16,17 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: src/hangon.c:63
+#: src/hangon.c:65
 #, c-format
 msgid "Try %s --help for more information.\n"
 msgstr "„%s --help“ gibt weitere Informationen.\n"
 
-#: src/hangon.c:65
+#: src/hangon.c:67
 #, c-format
 msgid "Usage: %s [OPTION]... -- COMMAND [COMMAND OPTION]...\n"
 msgstr "Aufruf: %s [OPTION]... -- BEFEHL [BEFEHLSOPTIONEN]\n"
 
-#: src/hangon.c:69
+#: src/hangon.c:71
 msgid ""
 "Restart an erratic COMMAND until it finishes cleanly.\n"
 "  -q, --quiet              suppress diagnostic messages\n"
@@ -39,24 +39,24 @@ msgstr ""
 "wird\n"
 "  -t, --timeout=SEKUNDEN   Zeit, nach der der BEFEHL neu gestartet wird\n"
 
-#: src/hangon.c:76
+#: src/hangon.c:78
 msgid "  -d, --debug              show debugging information\n"
 msgstr ""
 "  -d, --debug              zeige Informationen für die Fehlersuche an\n"
 
-#: src/hangon.c:80
+#: src/hangon.c:82
 msgid "      --help               display this help and exit\n"
 msgstr "      --help               diese Hilfe anzeigen und beenden\n"
 
-#: src/hangon.c:83
+#: src/hangon.c:85
 msgid "      --version            output version information and exit\n"
 msgstr "      --version            Versionsinformation anzeigen und beenden\n"
 
-#: src/hangon.c:94
+#: src/hangon.c:96
 msgid "(C)"
 msgstr "©"
 
-#: src/hangon.c:95
+#: src/hangon.c:97
 msgid ""
 "License GPLv2+: GNU GPL version 2 or later <http://gnu.org/licenses/gpl."
 "html>\n"
@@ -68,12 +68,12 @@ msgstr ""
 "Dies ist freie Software: Sie können sie ändern und weitergeben.\n"
 "Es gibt keinerlei Garantien, soweit wie es das Gesetz erlaubt.\n"
 
-#: src/hangon.c:223
+#: src/hangon.c:227
 #, c-format
 msgid "timeout must not be negative\n"
 msgstr "die Timeout-Option darf nicht negativ sein\n"
 
-#: src/hangon.c:230
+#: src/hangon.c:234
 #, c-format
 msgid "retries must not be negative\n"
 msgstr "die retries-Option darf nicht negativ sein\n"

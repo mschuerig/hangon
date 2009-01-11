@@ -1,12 +1,12 @@
-SUBDIRS = po src tests doc
+SUBDIRS = po gnulib/lib src tests doc
 
-ACLOCAL_AMFLAGS = -I m4
+ACLOCAL_AMFLAGS = -I m4 -I gnulib/m4
 
 man_page = $(PACKAGE).1
 man_MANS = $(man_page)
-CLEANFILES = $(man_page)
+MAINTAINERCLEANFILES = $(man_MANS)
 
-EXTRA_DIST = hangon.x $(man_MANS)
+EXTRA_DIST = hangon.x $(man_MANS) gnulib/m4/gnulib-cache.m4
 
 # Create the man page from --help and --version output
 

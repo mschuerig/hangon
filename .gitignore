@@ -6,6 +6,7 @@ build.*/
 ### Autotools generated files
 
 build-aux/
+gnulib/
 m4/
 autom4te.cache/
 

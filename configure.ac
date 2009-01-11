@@ -4,6 +4,12 @@ AM_INIT_AUTOMAKE([-Wall -Werror])
 
 AC_PROG_CC
 
+gl_EARLY
+gl_INIT
+
+dnl This isn't really necessary, is it?
+AC_PROG_RANLIB
+
 # -Wextra enables additional checks not included in -Wall
 # AM_INIT_AUTOMAKE doesn't accept -Wextra so it is added
 # manually. See gcc(1).
@@ -31,7 +37,7 @@ AM_GNU_GETTEXT_VERSION([0.17])
 
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_SRCDIR([src/hangon.c])
-AC_CONFIG_FILES([Makefile src/Makefile doc/Makefile po/Makefile.in])
+AC_CONFIG_FILES([Makefile gnulib/lib/Makefile src/Makefile doc/Makefile po/Makefile.in])
 
 AC_CONFIG_TESTDIR([tests], [tests:src])
 AC_CONFIG_FILES([tests/Makefile])
