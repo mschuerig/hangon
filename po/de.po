@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hangon 0.1\n"
 "Report-Msgid-Bugs-To: michael@schuerig.de\n"
-"POT-Creation-Date: 2009-01-09 23:42+0100\n"
+"POT-Creation-Date: 2009-01-10 22:41+0100\n"
 "PO-Revision-Date: 2009-01-09 23:47+0100\n"
 "Last-Translator: Michael Schuerig <michael@schuerig.de>\n"
 "Language-Team: German\n"
@@ -68,12 +68,12 @@ msgstr ""
 "Dies ist freie Software: Sie können sie ändern und weitergeben.\n"
 "Es gibt keinerlei Garantien, soweit wie es das Gesetz erlaubt.\n"
 
-#: src/hangon.c:210
+#: src/hangon.c:212
 #, c-format
 msgid "timeout must not be negative\n"
 msgstr "die Timeout-Option darf nicht negativ sein\n"
 
-#: src/hangon.c:217
+#: src/hangon.c:219
 #, c-format
 msgid "retries must not be negative\n"
 msgstr "die retries-Option darf nicht negativ sein\n"

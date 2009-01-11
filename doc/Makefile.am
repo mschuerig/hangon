@@ -1,2 +1,2 @@
 
-tutorial_TEXINFOS = tutorial.texi
+info_TEXINFOS = tutorial.texi

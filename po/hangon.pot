@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR Free Software Foundation, Inc.
+# Copyright (C) YEAR Michael Schuerig
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hangon 0.1\n"
 "Report-Msgid-Bugs-To: michael@schuerig.de\n"
-"POT-Creation-Date: 2009-01-09 23:42+0100\n"
+"POT-Creation-Date: 2009-01-10 22:41+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -52,18 +52,17 @@ msgstr ""
 
 #: src/hangon.c:90
 msgid ""
-"License GPLv2+: GNU GPL version 2 or later <http://gnu.org/licenses/gpl."
-"html>\n"
+"License GPLv2+: GNU GPL version 2 or later <http://gnu.org/licenses/gpl.html>\n"
 "This is free software: you are free to change and redistribute it.\n"
 "There is NO WARRANTY, to the extent permitted by law.\n"
 msgstr ""
 
-#: src/hangon.c:210
+#: src/hangon.c:212
 #, c-format
 msgid "timeout must not be negative\n"
 msgstr ""
 
-#: src/hangon.c:217
+#: src/hangon.c:219
 #, c-format
 msgid "retries must not be negative\n"
 msgstr ""

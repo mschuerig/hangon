@@ -6,7 +6,7 @@ man_page = $(PACKAGE).1
 man_MANS = $(man_page)
 CLEANFILES = $(man_page)
 
-EXTRA_DIST = config.rpath m4/ChangeLog $(man_MANS)
+EXTRA_DIST = hangon.x m4/ChangeLog $(man_MANS)
 
 # Create the man page from --help and --version output
 

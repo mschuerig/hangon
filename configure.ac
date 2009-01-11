@@ -18,15 +18,19 @@ AC_ARG_ENABLE([debug],
 if test "x$enable_debug" = "xyes"; then
     # Add some heavy-weight pointer checking using mudflap
     # See gcc(1) and <http://gcc.gnu.org/wiki/Mudflap_Pointer_Debugging>.
-    CFLAGS="$CFLAGS -O0 -g -DDEBUG -fmudflap -lmudflap"
+    CPPFLAGS="$CPPFLAGS -DDEBUG"
+    CFLAGS="$CFLAGS -O0 -g -fmudflap"
+    LDFLAGS="$LDFLAGS -lmudflap"
 else
-    CFLAGS="$CFLAGS -DNDEBUG"
+    CPPFLAGS="$CPPFLAGS -DNDEBUG"
 fi
 
 # Use a libintl installed on the system.
 AM_GNU_GETTEXT([external])
+AM_GNU_GETTEXT_VERSION([0.17])
 
 AC_CONFIG_HEADERS([config.h])
+AC_CONFIG_SRCDIR([src/hangon.c])
 AC_CONFIG_FILES([Makefile src/Makefile doc/Makefile po/Makefile.in])
 
 AC_CONFIG_TESTDIR([tests], [tests:src])
@@ -36,7 +40,12 @@ AC_CONFIG_FILES([tests/Makefile])
 # but not required for simply building it.
 # autom4te: used for merging tests into a suite
 AM_MISSING_PROG([AUTOM4TE], [autom4te])
-# help2man: used for deriving man pages from --help and --version output
-AM_MISSING_PROG([HELP2MAN], [help2man])
+
+if test "x$cross_compiling" = "xno"; then
+  # help2man: used for deriving man pages from --help and --version output
+  AM_MISSING_PROG([HELP2MAN], [help2man])
+else
+  HELP2MAN=:
+fi
 
 AC_OUTPUT

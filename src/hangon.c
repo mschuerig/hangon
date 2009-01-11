@@ -18,8 +18,13 @@
 #define AUTHORS "Michael Schuerig"
 #define COPYRIGHT_YEAR 2008
 
-#define _(msgid) gettext(msgid)
-#define N_(msgid) msgid
+#if ENABLE_NLS
+#  define _(msgid) gettext(msgid)
+#  define N_(msgid) msgid
+#else
+#  define _(msgid) msgid
+#  define N_(msgid) msgid
+#endif
 
 #ifdef DEBUG
 #define debug(format, ...) \
@@ -60,7 +65,7 @@ usage(int status)
     fprintf(stdout, _("\
 Usage: %s [OPTION]... -- COMMAND [COMMAND OPTION]...\n\
 "),
-	    program_name);
+            program_name);
     fputs(_("\
 Restart an erratic COMMAND until it finishes cleanly.\n\
   -q, --quiet              suppress diagnostic messages\n\
@@ -92,7 +97,7 @@ License GPLv2+: GNU GPL version 2 or later <http://gnu.org/licenses/gpl.html>\n\
 This is free software: you are free to change and redistribute it.\n\
 There is NO WARRANTY, to the extent permitted by law.\n\
 "),
-	   stdout);
+         stdout);
 }
 
 static int
@@ -113,8 +118,8 @@ watch_command_stdout(pid_t pid, int fd)
     switch (status) {
     case -1:
       if (errno == EINTR) {
-	status = 0;
-	continue;
+        status = 0;
+        continue;
       }
       break;
     case 0: /* timeout */
@@ -122,36 +127,42 @@ watch_command_stdout(pid_t pid, int fd)
       status = COMMAND_TIMEOUT;
       break;
     default:
+      /* @beginexcerpt read_stdout */
       status = 0;
       if (FD_ISSET(fd, &rfds)) {
-	ssize_t bytes_read = 0;
-	debug("READ: ");
-	bytes_read = read(fd, buffer, sizeof(buffer));
-	debug("%.*s\n", bytes_read, buffer, sizeof(buffer[0]));
-	if (bytes_read < 0) {
-	  if (errno == EINTR) {
-	    status = 0;
-	    continue;
-	  }
-	  status = -1;
-	} else if (bytes_read == 0) {
-	  int command_status;
-	  if (waitpid(pid, &command_status, 0) != -1) {
-	    debug("COMMAND STATUS: %d\n", WEXITSTATUS(command_status));
-	    if (WIFEXITED(command_status) && WEXITSTATUS(command_status) != 0) {
-	      status = COMMAND_ERROR;
-	    }
-	  }
-	  if (status == 0) {
-	    status = COMMAND_DONE;
-	  }
-	} else {
-	  debug("WRITE\n");
-	  if (write(STDOUT_FILENO, buffer, bytes_read) < 0) {
-	    status = -1;
-	  }
-	}
+        /* @beginexcerpt read */
+        ssize_t bytes_read = 0;
+        debug("READ: ");
+        bytes_read = read(fd, buffer, sizeof(buffer));
+        debug("%.*s\n", bytes_read, buffer, sizeof(buffer[0]));
+        if (bytes_read < 0) {
+          if (errno == EINTR) { /* @callout EINTR read */
+            status = 0;
+            continue;
+          }
+          status = -1;
+          /* @endexcerpt read */
+        } else if (bytes_read == 0) {
+          /* @beginexcerpt wait_command */
+          int command_status;
+          if (waitpid(pid, &command_status, 0) != -1) { /* @callout waitpid */
+            debug("COMMAND STATUS: %d\n", WEXITSTATUS(command_status));
+            if (WIFEXITED(command_status) && WEXITSTATUS(command_status) != 0) {
+              status = COMMAND_ERROR;
+            }
+          }
+          /* @endexcerpt wait_command */
+          if (status == 0) {
+            status = COMMAND_DONE;
+          }
+        } else {
+          debug("WRITE\n");
+          if (write(STDOUT_FILENO, buffer, bytes_read) < 0) {
+            status = -1;
+          }
+        }
       }
+      /* @endexcerpt read_stdout */
       break;
     }
   }
@@ -198,8 +209,10 @@ main(int argc, char *argv[])
   program_name = argv[0];
   
   setlocale(LC_ALL, "");
+#if ENABLE_NLS
   bindtextdomain(PACKAGE, LOCALEDIR);
   textdomain(PACKAGE);
+#endif
 
   int optc;
   while ((optc = getopt_long(argc, argv, "t:r:qdhv", long_options, NULL)) != -1) {
@@ -207,15 +220,15 @@ main(int argc, char *argv[])
     case 't':
       timeout_secs = atoi(optarg);
       if (timeout_secs < 0) {
-	fprintf(stderr, _("timeout must not be negative\n"));
-	exit(EXIT_FAILURE);
+        fprintf(stderr, _("timeout must not be negative\n"));
+        exit(EXIT_FAILURE);
       }
       break;
     case 'r':
       max_retries = atoi(optarg);
       if (max_retries < 0) {
-	fprintf(stderr, _("retries must not be negative\n"));
-	exit(EXIT_FAILURE);
+        fprintf(stderr, _("retries must not be negative\n"));
+        exit(EXIT_FAILURE);
       }
       break;
     case 'q':
@@ -241,7 +254,7 @@ main(int argc, char *argv[])
 
   debug("OPTIONS: timeout %ds, %d retries\n", timeout_secs, max_retries);
 
-  int hangon_status;
+  int hangon_status = 0;
   int retries = 0;
   
   if (optind < argc) {
@@ -252,13 +265,13 @@ main(int argc, char *argv[])
       hangon_status = hangon();
       debug("HANGON STATUS: %d\n", hangon_status);
       if (hangon_status == COMMAND_TIMEOUT) {
-	retries++;
-	if (max_retries == 0 || retries < max_retries) {
-	  hangon_status = 0;
-	  if (!quiet) {
-	    fprintf(stderr, "Command timed out, retrying...\n");
-	  }
-	}
+        retries++;
+        if (max_retries == 0 || retries < max_retries) {
+          hangon_status = 0;
+          if (!quiet) {
+            fprintf(stderr, "Command timed out, retrying...\n");
+          }
+        }
       }
     } while (hangon_status == 0);
 
@@ -273,9 +286,9 @@ main(int argc, char *argv[])
       break;
     case COMMAND_TIMEOUT:
       if (max_retries != 0) {
-	fprintf(stderr, "Command timed out too often.\n");
+        fprintf(stderr, "Command timed out too often.\n");
       } else {
-	fprintf(stderr, "Command timed out.\n");
+        fprintf(stderr, "Command timed out.\n");
       }
       break;
     case COMMAND_ERROR:
