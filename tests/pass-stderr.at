@@ -1,0 +1,12 @@
+# -*- Autotest -*-
+
+AT_SETUP([normal termination])
+
+AT_CHECK([hangon print-stderr.sh],
+         [0],
+[This goes to stdout.
+],
+[This ought to go to stderr.
+])
+
+AT_CLEANUP

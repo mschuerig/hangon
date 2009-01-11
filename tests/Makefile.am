@@ -28,7 +28,8 @@ TESTSUITE_AT = \
  normal-term.at\
  error-term.at\
  non-existing.at\
- max-retries.at
+ max-retries.at\
+ pass-stderr.at
 
 TESTSUITE = $(srcdir)/testsuite
 

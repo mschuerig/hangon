@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hangon 0.1\n"
 "Report-Msgid-Bugs-To: michael@schuerig.de\n"
-"POT-Creation-Date: 2009-01-10 22:41+0100\n"
+"POT-Creation-Date: 2009-01-11 22:45+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,17 +16,17 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/hangon.c:58
+#: src/hangon.c:63
 #, c-format
 msgid "Try %s --help for more information.\n"
 msgstr ""
 
-#: src/hangon.c:60
+#: src/hangon.c:65
 #, c-format
 msgid "Usage: %s [OPTION]... -- COMMAND [COMMAND OPTION]...\n"
 msgstr ""
 
-#: src/hangon.c:64
+#: src/hangon.c:69
 msgid ""
 "Restart an erratic COMMAND until it finishes cleanly.\n"
 "  -q, --quiet              suppress diagnostic messages\n"
@@ -34,35 +34,35 @@ msgid ""
 "  -t, --timeout=SECONDS    timeout in seconds\n"
 msgstr ""
 
-#: src/hangon.c:71
+#: src/hangon.c:76
 msgid "  -d, --debug              show debugging information\n"
 msgstr ""
 
-#: src/hangon.c:75
+#: src/hangon.c:80
 msgid "      --help               display this help and exit\n"
 msgstr ""
 
-#: src/hangon.c:78
+#: src/hangon.c:83
 msgid "      --version            output version information and exit\n"
 msgstr ""
 
-#: src/hangon.c:89
+#: src/hangon.c:94
 msgid "(C)"
 msgstr ""
 
-#: src/hangon.c:90
+#: src/hangon.c:95
 msgid ""
 "License GPLv2+: GNU GPL version 2 or later <http://gnu.org/licenses/gpl.html>\n"
 "This is free software: you are free to change and redistribute it.\n"
 "There is NO WARRANTY, to the extent permitted by law.\n"
 msgstr ""
 
-#: src/hangon.c:212
+#: src/hangon.c:223
 #, c-format
 msgid "timeout must not be negative\n"
 msgstr ""
 
-#: src/hangon.c:219
+#: src/hangon.c:230
 #, c-format
 msgid "retries must not be negative\n"
 msgstr ""

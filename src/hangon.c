@@ -265,13 +265,13 @@ main(int argc, char *argv[])
       hangon_status = hangon();
       debug("HANGON STATUS: %d\n", hangon_status);
       if (hangon_status == COMMAND_TIMEOUT) {
-        retries++;
         if (max_retries == 0 || retries < max_retries) {
           hangon_status = 0;
           if (!quiet) {
             fprintf(stderr, "Command timed out, retrying...\n");
           }
         }
+        retries++;
       }
     } while (hangon_status == 0);
 
