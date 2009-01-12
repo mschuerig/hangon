@@ -7,9 +7,6 @@ AC_PROG_CC
 gl_EARLY
 gl_INIT
 
-dnl This isn't really necessary, is it?
-AC_PROG_RANLIB
-
 # -Wextra enables additional checks not included in -Wall
 # AM_INIT_AUTOMAKE doesn't accept -Wextra so it is added
 # manually. See gcc(1).
