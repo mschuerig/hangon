@@ -1,3 +1,8 @@
 
-* don't restart command if exited with a specific set of status codes
-* listen to multiple streams (stderr)?
+* Don't restart command if exited with a specific set of status codes
+* Listen to multiple streams (stderr)?
+
+Packaging
+
+* Is it possible to keep VERSION and Debian package version consistent automatically?
+* autogen.sh: non-interactive alternative to gettextize?

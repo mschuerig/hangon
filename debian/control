@@ -2,7 +2,8 @@ Source: hangon
 Section: utils
 Priority: extra
 Maintainer: Michael Schuerig <michael@schuerig.de>
-Build-Depends: cdbs, debhelper (>= 7), autotools-dev, gettext, gnulib
+Build-Depends: cdbs (>= 0.4.23-1.1), debhelper (>= 7), autotools-dev, gnulib (>= 0.0.20041014-2), autoconf, automake, autotools-dev, gettext
+Build-Conflicts: autoconf2.13, automake1.4
 Standards-Version: 3.8.0
 Homepage: http://github.com/mschuerig/hangon
 Vcs-Browser: http://github.com/mschuerig/hangon

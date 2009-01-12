@@ -1,7 +1,7 @@
 
 #include <errno.h>
 #include <getopt.h>
-#include <libintl.h>
+#include <gettext.h>
 #include <locale.h>
 #include <signal.h>
 #include <stdio.h>
@@ -12,21 +12,18 @@
 #include <sys/time.h>
 #include <sys/wait.h>
 
-#include "closeout.h"
-
 #include "config.h"
+
+#include "closeout.h"
+#include "gettext.h"
+
 
 #define PROGRAM_NAME "hangon"
 #define AUTHORS "Michael Schuerig"
 #define COPYRIGHT_YEAR 2008
 
-#if ENABLE_NLS
-#  define _(msgid) gettext(msgid)
-#  define N_(msgid) msgid
-#else
-#  define _(msgid) msgid
-#  define N_(msgid) msgid
-#endif
+#define _(msgid) gettext(msgid)
+#define N_(msgid) msgid
 
 #ifdef DEBUG
 #define debug(format, ...) \
@@ -211,10 +208,8 @@ main(int argc, char *argv[])
   program_name = argv[0];
 
   setlocale(LC_ALL, "");
-#if ENABLE_NLS
   bindtextdomain(PACKAGE, LOCALEDIR);
   textdomain(PACKAGE);
-#endif
 
   atexit(close_stdout);
 

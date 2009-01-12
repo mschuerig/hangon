@@ -1,9 +1,23 @@
 #!/usr/bin/make -f
 
+DEB_INSTALL_CHANGELOGS_ALL = ChangeLog
+DEB_BUILDDIR = build.debian
+
 include /usr/share/cdbs/1/rules/debhelper.mk
 include /usr/share/cdbs/1/class/autotools.mk
 
 
 # Add here any variable or target overrides you need.
 
-DEB_INSTALL_CHANGELOGS_ALL = ChangeLog
+.PHONY: autogen-clean
+
+pre-build:: stamp-autogen
+
+clean:: autogen-clean
+
+stamp-autogen:
+	./autogen.sh
+	touch stamp-autogen
+
+autogen-clean:
+	rm -f stamp-autogen

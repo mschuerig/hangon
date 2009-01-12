@@ -2,6 +2,7 @@
 .#*
 #*
 build.*/
+stamp-*
 
 ### Autotools generated files
 

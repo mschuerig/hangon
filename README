@@ -15,8 +15,6 @@ You need the whole set of autotools, gettext, and gnulib.
 
 Generate all the infrastructure files with
 $ ./autogen.sh
-
-From there on continue as usual
 $ ./configure
 $ make
 $ sudo make
