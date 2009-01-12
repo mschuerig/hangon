@@ -1,3 +1,29 @@
 
-Nothing yet...
-email
+hangon: Keep a command running until it finishes successfully
+-------------------------------------------------------------
+
+Start and restart a command until it finishes successfully.
+The command is restarted if it exits with an error code or 
+if it doesn't write anything to stdout for a given period.
+
+### Some more docs are coming in due time...
+
+Building
+--------
+
+You need the whole set of autotools, gettext, and gnulib.
+
+Generate all the infrastructure files with
+$ ./autogen.sh
+
+From there on continue as usual
+$ ./configure
+$ make
+$ sudo make
+
+OR
+
+Generate a Debian package
+$ debuild -I.git -I.gitignore -us -uc
+$ cd ..
+$ sudo dpkg -i hangon_0.1_i386.deb # or whatever it is called
