@@ -1,7 +1,6 @@
 
 #include <errno.h>
 #include <getopt.h>
-#include <gettext.h>
 #include <locale.h>
 #include <signal.h>
 #include <stdio.h>

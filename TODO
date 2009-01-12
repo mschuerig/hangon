@@ -5,4 +5,3 @@
 Packaging
 
 * Is it possible to keep VERSION and Debian package version consistent automatically?
-* autogen.sh: non-interactive alternative to gettextize?
