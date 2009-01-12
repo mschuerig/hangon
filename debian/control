@@ -1,0 +1,17 @@
+Source: hangon
+Section: utils
+Priority: extra
+Maintainer: Michael Schuerig <michael@schuerig.de>
+Build-Depends: cdbs, debhelper (>= 7), autotools-dev, gettext, gnulib
+Standards-Version: 3.8.0
+Homepage: http://github.com/mschuerig/hangon
+Vcs-Browser: http://github.com/mschuerig/hangon
+Vcs-Git: git://github.com/mschuerig/hangon.git
+
+Package: hangon
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Keep a command running until it finishes successfully
+ Start and restart a command until it finishes successfully.
+ The command is restarted if it exits with an error code or 
+ if it doesn't write anything to stdout for a given period.

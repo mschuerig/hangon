@@ -5,6 +5,10 @@
 @include version.texi
 @c %**end of header
 
+@c For the time being this is a complete mess,
+@c collection of obsolete ideas and excerpts.
+@c to be continued...
+
 @copying
 Copyright © 2008 Michael Schürig
 @end copying
@@ -162,3 +166,4 @@ SUFFIXES = .x .1
 
 ### Debian package
 
+/usr/share/doc/autotools-dev/README.Debian.gz
