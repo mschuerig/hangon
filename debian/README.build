@@ -1,0 +1,3 @@
+
+CVS is included as a build-dependency because autoreconf (autopoint)
+needs it, but only suggests it.
