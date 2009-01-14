@@ -3,6 +3,7 @@
 #include <getopt.h>
 #include <locale.h>
 #include <signal.h>
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -51,8 +52,8 @@ static char *program_name;
 static char **command_args;
 static int timeout_secs = 60;
 static int max_retries = 0;
-static int quiet = 0;
-static int debugging = 0;
+static bool quiet = false;
+static bool debugging = false;
 
 static void
 usage(int status)
@@ -230,11 +231,11 @@ main(int argc, char *argv[])
             }
             break;
         case 'q':
-            quiet = 1;
+            quiet = true;
             break;
 #ifdef DEBUG
         case 'd':
-            debugging = 1;
+            debugging = true;
             break;
 #endif
         case 'h':
