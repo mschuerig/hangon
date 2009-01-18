@@ -55,6 +55,8 @@ Copyright © 2008 Michael Schürig
 @node Program
 @chapter Program
 
+@verbatiminclude /tmp/excerpts/hangon_c_read.exc
+
 @bye
 
 

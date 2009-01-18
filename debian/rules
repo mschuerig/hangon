@@ -20,4 +20,4 @@ stamp-autogen:
 	touch stamp-autogen
 
 autogen-clean:
-	rm -f stamp-autogen
+	-rm -f stamp-autogen
