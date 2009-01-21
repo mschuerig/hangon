@@ -55,7 +55,13 @@ Copyright © 2008 Michael Schürig
 @node Program
 @chapter Program
 
-@verbatiminclude /tmp/excerpts/hangon_c_read.exc
+@include excerpts/hangon_c_read_stdout.texi
+
+REF @ref{read_stdout_EINTR}
+
+XREF @xref{read_stdout_EINTR}
+
+PXREF @pxref{read_stdout_EINTR}
 
 @bye
 

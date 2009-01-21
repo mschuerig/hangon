@@ -1,10 +1,6 @@
 #! /usr/bin/awk --exec
 #-*- awk -*-
 
-# TODO
-# - extract callouts
-#  - write line numbers or on corresponding lines?
-
 BEGIN {
     program_name = "excerpt";
 
@@ -19,6 +15,7 @@ BEGIN {
 
     outdent = 0;
     excerpts_dir = "";
+    excerpts_ext = ".texi";
 
     Opterr = 1;
     Optind = 1;
@@ -50,16 +47,11 @@ BEGIN {
     system("mkdir -p " excerpts_dir);
 
     excerpts_base = excerpts_basename(excerpts_dir, infile);
-    excerpts_ext = ".exc"
 }
 
 $0 ~ excerpt_start_pat {
     if (match($0, excerpt_start_pat "([[:alnum:]_]+)", m)) {
-        e = m[1];
-        fn = excerpts_base e excerpts_ext;
-        excerpts[e] = fn;
-        blanks[e] = 10000;
-        lines[e] = 0;
+        begin_excerpt(m[1]);
         next;
     }
 }
@@ -68,29 +60,21 @@ $0 ~ excerpt_end_pat {
     if (match($0, excerpt_end_pat "([[:alnum:]_]+)", m)) {
         e = m[1];
         if (excerpts[e]) {
-            all_excerpts[e] = excerpts[e];
-            close(excerpts[e]);
-            delete excerpts[e];
-            delete lines[e];
+            finish_excerpt(e);
             next;
         }
     }
 }
 
-$0 ~ callout_pat {
-    match($0, callout_pat, m);
-    $0 = substr($0, 0, RSTART - 1);
-    print; ### REMOVE
-    co = m[1];
-    ex = m[3];
-    for (e in excerpts) {
-        if (!ex || ex == e) {
-            print e ":" lines[e] ": " co;
-        }
-    }
-}
-
 {
+    callout_name = "";
+    callout_excerpt = "";
+    if (match($0, callout_pat, m)) {
+        $0 = substr($0, 0, RSTART - 1);
+        callout_name = m[1];
+        callout_excerpt = m[3];
+    }
+    
     for (e in excerpts) {
         if (match($0, /^[[:blank:]]+/)) {
             bl = RLENGTH;
@@ -98,15 +82,14 @@ $0 ~ callout_pat {
                 blanks[e] = bl;
             }
         }
-        print > excerpts[e];
-        lines[e]++;
+        writeln(e, FNR, $0, callout_name);
     }
 }
 
 END {
     if (outdent) {
         for (e in all_excerpts) {
-            cmd = "sed -i 's/^ \\{" blanks[e] "\\}//' " all_excerpts[e];
+            cmd = "sed -i 's/^\\(@tab @verb{.\\) \\{" blanks[e] "\\}/\\1/' " all_excerpts[e];
             system(cmd);
         }
     }
@@ -156,6 +139,37 @@ function basename(fn,  _bn)
     _bn = fn;
     sub(/.*\//, "", _bn);
     return _bn;
+}
+
+function begin_excerpt(e,  _fn)
+{
+    _fn = excerpts_base e excerpts_ext;
+    excerpts[e] = _fn;
+    blanks[e] = 10000;
+    marks[e] = 0;
+    print "@multitable @columnfractions .05 .9 .05" > _fn;
+}
+
+function finish_excerpt(e,  _fn)
+{
+    _fn = excerpts[e];
+    print "@end multitable" > _fn;
+    all_excerpts[e] = _fn;
+    close(_fn);
+    delete excerpts[e];
+    delete marks[e];
+}
+
+function writeln(excerpt, line_no, line, callout,  _file)
+{
+    # @item @i{23}
+    # @tab @verb{^Aif (bytes_read < 0) {^A}
+    # @tab (1)
+    _file = excerpts[excerpt];
+    printf("@item @i{%d}\n@tab @verb{\001%s\001}\n", line_no, line) > _file;
+    if (callout != "") {
+        printf("@tab @anchor{%s_%s}@b{(%d)}\n", excerpt, callout, ++marks[e]) > _file;
+    }
 }
 
 # getopt.awk --- do C library getopt(3) function in awk
