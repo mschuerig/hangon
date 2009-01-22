@@ -1,7 +1,6 @@
 
 * Don't restart command if exited with a specific set of status codes
 * Listen to multiple streams (stderr)?
-* Don't set CLAGS and LDFLAGS in configure.ac
 * USE the flags set in config.h!
 
 Packaging

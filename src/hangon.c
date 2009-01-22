@@ -7,6 +7,7 @@
  */
 #include <errno.h>
 #include <getopt.h>
+#include <libintl.h>
 #include <locale.h>
 #include <signal.h>
 #include <stdbool.h>
@@ -59,7 +60,9 @@ static char **command_args;
 static int timeout_secs = 60;
 static int max_retries = 0;
 static bool quiet = false;
+#ifdef DEBUG
 static bool debugging = false;
+#endif
 
 static void
 usage(int status)
