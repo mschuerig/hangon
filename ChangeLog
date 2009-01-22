@@ -1,4 +1,17 @@
+2009-01-22  Michael Schuerig <michael@schuerig.de>
+
+  * debian/.gitignore, debian/rules: Debian: build in debian/build so that
+  build artefacts are not included in source package.
+
+  * README, autogen.sh, bootstrap, debian/rules: Renamed autogen.sh to
+  bootstrap.
+
+  * TODO, configure.ac, doc/tutorial.texi, src/hangon.c: Cleaned up
+  autotooling: added more checks as hinted at by autoscan.
+
 2009-01-21  Michael Schuerig <michael@schuerig.de>
+
+  * ChangeLog: Add auto-generated entries to ChangeLog.
 
   * doc/Makefile.am, doc/tutorial.texi, tools/excerpt: Change excerpt tool to
   write texinfo source code.

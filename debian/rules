@@ -1,7 +1,7 @@
 #!/usr/bin/make -f
 
 DEB_INSTALL_CHANGELOGS_ALL = ChangeLog
-DEB_BUILDDIR = build.debian
+DEB_BUILDDIR = debian/build
 
 include /usr/share/cdbs/1/rules/debhelper.mk
 include /usr/share/cdbs/1/class/autotools.mk
