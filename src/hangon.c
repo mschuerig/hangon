@@ -1,4 +1,10 @@
 
+/* config.h needs to included first for gnulib to work its magic */
+#include <config.h>
+
+/*
+ * standard includes
+ */
 #include <errno.h>
 #include <getopt.h>
 #include <locale.h>
@@ -12,10 +18,10 @@
 #include <sys/time.h>
 #include <sys/wait.h>
 
-#include "config.h"
-
-#include "closeout.h"
-#include "gettext.h"
+/*
+ * gnulib utilities
+ */
+#include <closeout.h>
 
 
 #define PROGRAM_NAME "hangon"
