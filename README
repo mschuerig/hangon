@@ -8,13 +8,20 @@ if it doesn't write anything to stdout for a given period.
 
 ### Some more docs are coming in due time...
 
-Building
---------
+
+Building from a .tar.gz distribution
+------------------------------------
+
+See INSTALL.
+
+
+Building from a git clone
+-------------------------
 
 You need the whole set of autotools, gettext, and gnulib.
 
 Generate all the infrastructure files with
-$ ./autogen.sh
+$ ./bootstrap
 $ ./configure
 $ make
 $ sudo make
@@ -22,6 +29,6 @@ $ sudo make
 OR
 
 Generate a Debian package
-$ debuild -I.git -I.gitignore -us -uc
+$ debuild -I.git -I.gitignore -D -us -uc
 $ cd ..
 $ sudo dpkg -i hangon_0.1_i386.deb # or whatever it is called
