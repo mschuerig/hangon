@@ -10,7 +10,7 @@ AC_CONFIG_HEADERS([config.h])
 AC_ARG_ENABLE([debug],
               AS_HELP_STRING([--enable-debug], [enable debugging]),
               enable_debug="true")
-AM_CONDITIONAL([DEBUG], [test x$debug = xtrue])
+AM_CONDITIONAL([DEBUG], [test x$enable_debug = xtrue])
 
 # Checks for programs.
 AC_PROG_CC

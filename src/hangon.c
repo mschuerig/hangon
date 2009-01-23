@@ -1,5 +1,5 @@
 
-/* config.h needs to included first for gnulib to work its magic */
+/* config.h needs to be included first for gnulib to work its magic */
 #include <config.h>
 
 /*
@@ -36,7 +36,9 @@
 #define debug(format, ...)                              \
     do {                                                \
         if (debugging) {                                \
-            fprintf (stderr, format, ## __VA_ARGS__);   \
+            fprintf(stderr, "[debug] %s:%d in %s(): ",  \
+                    __FILE__, __LINE__, __FUNCTION__);  \
+            fprintf(stderr, format, ## __VA_ARGS__);    \
         }                                               \
     } while (0)
 #else
