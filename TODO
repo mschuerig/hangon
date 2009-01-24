@@ -1,7 +1,9 @@
 
-* Don't restart command if exited with a specific set of status codes
+* Implement restarting on error exits based on status code or exit signal
 * Listen to multiple streams (stderr)?
 * USE the flags set in config.h!
+* gettext-ing for error strings
+* Show exit status when command exited with error
 
 Packaging
 

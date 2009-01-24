@@ -3,6 +3,16 @@ EXTRA_DIST = $(TESTSUITE_AT) testsuite package.m4
 DISTCLEANFILES       = atconfig $(check_SCRIPTS)
 MAINTAINERCLEANFILES = Makefile.in $(TESTSUITE)
 
+bin_PROGRAMS = slow
+slow_SOURCES = slow.c
+
+AM_CFLAGS = -std=c99 \
+  -Wall -Wextra \
+  -Wwrite-strings \
+  -Wunused -Wno-unused-parameter \
+  -Werror
+
+
 ## ------------ ##
 ## package.m4.  ##
 ## ------------ ##

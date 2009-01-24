@@ -2,22 +2,29 @@
 
 AT_SETUP([limited number of retries])
 
-AT_CHECK([hangon -t 1 -r 2 slow.sh],
+AT_CHECK([hangon -t 1 -r 2 slow],
          [1],
 [Started
 Started
 Started
 ],
-[Command timed out, retrying...
+[This is killing me.
 Command timed out, retrying...
+This is killing me.
+Command timed out, retrying...
+This is killing me.
 Command timed out too often.
 ])
 
-AT_CHECK([hangon -q -t 1 -r 2 slow.sh],
+AT_CHECK([hangon -q -t 1 -r 2 slow],
          [1],
 [Started
 Started
 Started
+],
+[This is killing me.
+This is killing me.
+This is killing me.
 ])
 
 AT_CLEANUP
