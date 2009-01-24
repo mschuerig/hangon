@@ -1,6 +1,6 @@
 # -*- Autotest -*-
 
-AT_SETUP([normal termination])
+AT_SETUP([pass stderr])
 
 AT_CHECK([hangon print-stderr.sh],
          [0],
