@@ -1,6 +1,12 @@
 #! /usr/bin/awk --exec
 #-*- awk -*-
 
+# TODO
+# - check for
+#  - unclosed excerpts
+#  - @endexcerpt without/before @beginexcerpt
+#  - @callout outside of excerpt
+
 BEGIN {
     program_name = "excerpt";
 
