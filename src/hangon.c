@@ -189,7 +189,7 @@ wait_for_finished_command(pid_t pid)
 
 
 static int
-pass_stdout(pid_t pid, int fd)
+pass_stdout(int fd)
 {
     /* @beginexcerpt read */
     ssize_t bytes_read;
@@ -214,7 +214,7 @@ pass_stdout(pid_t pid, int fd)
 
 
 static int
-watch_command_stdout(pid_t pid, int fd)
+watch_command_stdout(int fd)
 {
     fd_set rfds;
     struct timespec ts = { .tv_sec = timeout_secs, .tv_nsec = 0 };
@@ -240,7 +240,7 @@ watch_command_stdout(pid_t pid, int fd)
         default:
             status = 0;
             if (FD_ISSET(fd, &rfds)) {
-                status = pass_stdout(pid, fd);
+                status = pass_stdout(fd);
             }
             break;
         }
@@ -293,7 +293,7 @@ hangon(char * const command_args[])
 
     /* parent */
     close(pfd[1]);
-    status = watch_command_stdout(pid, pfd[0]);
+    status = watch_command_stdout(pfd[0]);
     close(pfd[0]);
 
     if (status == COMMAND_TIMEOUT) {

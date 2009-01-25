@@ -15,7 +15,7 @@ AM_CPPFLAGS = -DLOCALEDIR=\"$(localedir)\" \
 AM_CFLAGS = -std=c99 \
   -Wall -Wextra \
   -Wwrite-strings \
-  -Wunused -Wno-unused-parameter \
+  -Wunused \
   -Werror
 
 if DEBUG

@@ -7,9 +7,8 @@ bin_PROGRAMS = slow
 slow_SOURCES = slow.c
 
 AM_CFLAGS = -std=c99 \
-  -Wall -Wextra \
+  -Wall \
   -Wwrite-strings \
-  -Wunused -Wno-unused-parameter \
   -Werror
 
 

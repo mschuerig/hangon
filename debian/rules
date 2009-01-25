@@ -6,6 +6,13 @@ DEB_BUILDDIR = debian/build
 include /usr/share/cdbs/1/rules/debhelper.mk
 include /usr/share/cdbs/1/class/autotools.mk
 
+# The cleanbuilddir target defined in
+# /usr/share/cdbs/1/rules/buildcore.mk
+# only tries rmdir which can't remove the dir
+# because of nested (empty) subdirs.
+cleanbuilddir::
+	-$(if $(call cdbs_streq,$(DEB_BUILDDIR),$(DEB_SRCDIR)),,rm -rf $(DEB_BUILDDIR))
+
 
 # Add here any variable or target overrides you need.
 
