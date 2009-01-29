@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hangon 0.1\n"
 "Report-Msgid-Bugs-To: michael@schuerig.de\n"
-"POT-Creation-Date: 2009-01-12 00:24+0100\n"
+"POT-Creation-Date: 2009-01-29 02:10+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,17 +16,17 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/hangon.c:65
+#: src/hangon.c:73
 #, c-format
 msgid "Try %s --help for more information.\n"
 msgstr ""
 
-#: src/hangon.c:67
+#: src/hangon.c:75
 #, c-format
 msgid "Usage: %s [OPTION]... -- COMMAND [COMMAND OPTION]...\n"
 msgstr ""
 
-#: src/hangon.c:71
+#: src/hangon.c:79
 msgid ""
 "Restart an erratic COMMAND until it finishes cleanly.\n"
 "  -q, --quiet              suppress diagnostic messages\n"
@@ -34,35 +34,50 @@ msgid ""
 "  -t, --timeout=SECONDS    timeout in seconds\n"
 msgstr ""
 
-#: src/hangon.c:78
+#: src/hangon.c:86
 msgid "  -d, --debug              show debugging information\n"
 msgstr ""
 
-#: src/hangon.c:82
+#: src/hangon.c:90
 msgid "      --help               display this help and exit\n"
 msgstr ""
 
-#: src/hangon.c:85
+#: src/hangon.c:93
 msgid "      --version            output version information and exit\n"
 msgstr ""
 
-#: src/hangon.c:96
+#: src/hangon.c:105
 msgid "(C)"
 msgstr ""
 
-#: src/hangon.c:97
+#: src/hangon.c:106
 msgid ""
 "License GPLv2+: GNU GPL version 2 or later <http://gnu.org/licenses/gpl.html>\n"
 "This is free software: you are free to change and redistribute it.\n"
 "There is NO WARRANTY, to the extent permitted by law.\n"
 msgstr ""
 
-#: src/hangon.c:227
+#: src/hangon.c:124
 #, c-format
 msgid "timeout must not be negative\n"
 msgstr ""
 
-#: src/hangon.c:234
+#: src/hangon.c:131
 #, c-format
 msgid "retries must not be negative\n"
+msgstr ""
+
+#: src/hangon.c:325
+#, c-format
+msgid "Command timed out, retrying...\n"
+msgstr ""
+
+#: src/hangon.c:344
+#, c-format
+msgid "Command timed out too often.\n"
+msgstr ""
+
+#: src/hangon.c:347
+#, c-format
+msgid "Command terminated with status: %d\n"
 msgstr ""

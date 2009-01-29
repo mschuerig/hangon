@@ -322,7 +322,7 @@ run_command(char * const command_args[])
             if (max_retries == 0 || retries < max_retries) {
                 status = 0;
                 if (!quiet) {
-                    fprintf(stderr, "Command timed out, retrying...\n");
+                    fprintf(stderr, _("Command timed out, retrying...\n"));
                 }
             }
             retries++;
@@ -341,10 +341,10 @@ print_status(int command_status)
         perror("Error executing command");
         break;
     case COMMAND_TIMEOUT:
-        fprintf(stderr, "Command timed out too often.\n");
+        fprintf(stderr, _("Command timed out too often.\n"));
         break;
     case COMMAND_ERROR:
-        fprintf(stderr, "Command terminated with status: %d\n", 0); /* FIXME status */
+        fprintf(stderr, _("Command terminated with status: %d\n"), 0); /* FIXME status */
         break;
     }
 }
