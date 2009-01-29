@@ -288,7 +288,7 @@ hangon(char * const command_args[])
         }
         execvp(command_args[0], command_args);
         perror(command_args[0]);
-        exit(EXIT_FAILURE);
+        _exit(EXIT_FAILURE); /* don't execute atexit handlers */
     }
 
     /* parent */
