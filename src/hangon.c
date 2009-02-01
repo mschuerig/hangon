@@ -199,7 +199,7 @@ pass_stdout(int fd)
     bytes_read = read(fd, buffer, sizeof(buffer));
     debug("READ (%d): %.*s\n", bytes_read, bytes_read, buffer);
     if (bytes_read < 0) {
-        status = (errno == EINTR) ? 0 : -1; /* @callout EINTR */
+        status = -1;
         /* @endexcerpt read */
     } else if (bytes_read == 0) {
         status = COMMAND_DONE; /* @callout success */
@@ -229,9 +229,6 @@ watch_command_stdout(int fd)
         status = pselect(fd + 1, &rfds, NULL, NULL, timeout, NULL);
         switch (status) {
         case -1:
-            if (errno == EINTR) {
-                status = 0;
-            }
             break;
         case 0: /* timeout */
             debug("TIMEOUT\n");

@@ -13,14 +13,15 @@ AC_ARG_ENABLE([debug],
 AM_CONDITIONAL([DEBUG], [test x$enable_debug = xtrue])
 
 # Checks for programs.
+AC_GNU_SOURCE
 AC_PROG_CC
 
-## gnulib needs to be initialized before any further checks.
+# gnulib needs to be initialized before any further checks.
+# see below for gl_INIT
 gl_EARLY
-gl_INIT
 
-## Checks for libraries.
-## would go here
+# Checks for libraries.
+# would go here
 
 # Checks for header files.
 AC_HEADER_STDC
@@ -37,17 +38,20 @@ AC_TYPE_SSIZE_T
 AC_FUNC_FORK
 AC_CHECK_FUNCS([atexit dup2 setlocale])
 
+# Setup gnulib
+gl_INIT
+
 # Checks for gettext.
-## Use a libintl installed on the system.
+# Use a libintl installed on the system.
 AM_GNU_GETTEXT([external])
 AM_GNU_GETTEXT_VERSION([0.17])
 
 # Testing
 AC_CONFIG_TESTDIR([tests], [tests:src])
 
-## Define additional programs needed for hacking on this project,
-## but not required for simply building it.
-## autom4te: used for merging tests into a suite
+# Define additional programs needed for hacking on this project,
+# but not required for simply building it.
+# autom4te: used for merging tests into a suite
 AM_MISSING_PROG([AUTOM4TE], [autom4te])
 
 if test "x$cross_compiling" = "xno"; then
@@ -57,6 +61,6 @@ else
   HELP2MAN=:
 fi
 
-## Generate Output
+dnl Generate Output
 AC_CONFIG_FILES([Makefile gnulib/lib/Makefile src/Makefile doc/Makefile po/Makefile.in tests/Makefile])
 AC_OUTPUT
