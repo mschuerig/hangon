@@ -7,7 +7,6 @@
  */
 #include <errno.h>
 #include <getopt.h>
-#include <libintl.h>
 #include <locale.h>
 #include <signal.h>
 #include <stdbool.h>
@@ -22,7 +21,8 @@
 /*
  * gnulib utilities
  */
-#include <closeout.h>
+#include "closeout.h"
+#include "gettext.h"
 
 
 #define PROGRAM_NAME "hangon"

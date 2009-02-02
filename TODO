@@ -3,6 +3,7 @@
 * Listen to multiple streams (stderr)?
 * USE the flags set in config.h!
 * Show exit status when command exited with error
+* Gnulib l10n? (-> /usr/share/doc/gnulib/gnulib.html#Localization)
 
 Packaging
 

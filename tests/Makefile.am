@@ -3,7 +3,7 @@ EXTRA_DIST = $(TESTSUITE_AT) testsuite package.m4
 DISTCLEANFILES       = atconfig $(check_SCRIPTS)
 MAINTAINERCLEANFILES = Makefile.in $(TESTSUITE)
 
-bin_PROGRAMS = slow
+check_PROGRAMS = slow
 slow_SOURCES = slow.c
 
 AM_CFLAGS = -std=c99 \
